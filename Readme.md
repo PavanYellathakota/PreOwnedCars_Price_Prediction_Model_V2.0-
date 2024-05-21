@@ -2,10 +2,6 @@
 
 ## Authors
 **Pavan Yellathakota** <br>
-- Section-2<br>
-
-**Nagaraju Mydam**<br> 
-- Section-1<br>
 
 ## Order of Execution
 
