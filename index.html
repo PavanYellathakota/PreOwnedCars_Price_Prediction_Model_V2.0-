@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AutoEval: Predictive Modeling for Used Car Pricing</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.7;
+            margin: 40px;
+            max-width: 1000px;
+            color: #333;
+        }
+        h1, h2, h3 {
+            color: #1a1a1a;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        a {
+            color: #0366d6;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        code {
+            background: #f4f4f4;
+            padding: 2px 4px;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+
+<h1>AutoEval: Predictive Modeling for Used Car Pricing</h1>
+
+<h2>Authors</h2>
+<p><strong>Pavan Yellathakota</strong></p>
+
+<h2>Order of Execution</h2>
+<img src="Img/Order.jpg" alt="Flowchart">
+
+<h2>Dataset Overview</h2>
+<ul>
+    <li><strong>Source</strong>: Available on <a href="https://www.kaggle.com/datasets/austinreese/craigslist-carstrucks-data" target="_blank">Kaggle</a>.</li>
+    <li><strong>Fields Summary</strong>: Includes features like <code>id, region, price, year, manufacturer, model</code>, etc.</li>
+    <li><strong>Relevance</strong>: Helps compare used car prices based on real Craigslist ads.</li>
+</ul>
+
+<h2>Project Objective</h2>
+<ul>
+    <li><strong>Prediction Target</strong>: Selling price of pre-owned cars.</li>
+    <li><strong>Applications</strong>: Integration with car trading platforms and price estimation tools for individuals.</li>
+</ul>
+
+<h2>Project Workflow</h2>
+<h3>Data Cleaning & Preprocessing</h3>
+<p>
+Initial dataset: <strong>426,880 rows × 26 columns</strong><br>
+Post-cleaning: <strong>71,094 rows × 15 columns</strong>
+</p>
+<img src="Img/Null_Percentage.png" alt="Null Percentage">
+<img src="Img/Price_year_boxplot.png" alt="Outliers">
+
+<h3>Feature Engineering</h3>
+<ul>
+    <li>New feature: <code>car_age</code></li>
+    <li>Encoding: One-hot and Frequency encoding</li>
+</ul>
+
+<h3>Exploratory Data Analysis (EDA)</h3>
+<p><strong>Derived Metric:</strong> <code>Odometer_Price_Ratio = Odometer / Price</code></p>
+<img src="Img/odometer_Price_ratio.png" alt="Odometer Price Ratio">
+<p><code>Man_dep_OP</code>: Average manufacturer depreciation per odometer price ratio</p>
+
+<ul>
+    <li><strong>Predictors (X)</strong>: All engineered and encoded features</li>
+    <li><strong>Target (Y)</strong>: Price</li>
+</ul>
+
+<img src="Img/Cor_matrix.png" alt="Correlation Matrix">
+<img src="Img/ScreePlot.png" alt="ScreePlot">
+<img src="Img/clusters.png" alt="Geographic Clusters">
+
+<h2>Model Development</h2>
+<ul>
+    <li>Train/test split: 80/20</li>
+    <li>Models: Linear Regression, Decision Tree, Random Forest, XGBoost</li>
+</ul>
+
+<h2>Validation and Performance</h2>
+<p>Metrics used: <code>R², MSE, RMSE</code></p>
+
+<img src="Img/Linear_regression.png" alt="Linear Regression">
+<img src="Img/Decision_tree.png" alt="Decision Tree">
+<img src="Img/Random_Forests.png" alt="Random Forest">
+<img src="Img/XGBoost.png" alt="XGBoost">
+<img src="Img/Performance.png" alt="Model Performance">
+<img src="Img/Model_Performances.png" alt="Performance by Cluster">
+
+<h3>External Test Data</h3>
+<pre><code>{
+  'odometer': [95000],
+  'condition_excellent': [1],
+  ...
+  'cylinders_freq': [0.359]
+}</code></pre>
+
+<p><strong>Predicted Prices</strong>:</p>
+<ul>
+    <li>Random Forest: <code>14317.12</code></li>
+    <li>Decision Tree: <code>14000.00</code></li>
+    <li>XGBoost: <code>11684.71</code></li>
+    <li>Linear Regression: <code>12924.74</code></li>
+</ul>
+
+<h2>Production and Deployment</h2>
+<ul>
+    <li>Integrate into trading platforms</li>
+    <li>Useful for car dealers and individual sellers</li>
+    <li>Regular retraining recommended</li>
+</ul>
+
+<h2>Future Prospects</h2>
+<ul>
+    <li>Include more robust, real-time data</li>
+    <li>Improve prediction using additional economic/vehicle condition metrics</li>
+</ul>
+
+<h2>Conclusion</h2>
+<p>
+This project showcases the potential of machine learning in evaluating used car prices. Based on the evaluation, Random Forest and XGBoost performed the best. Their consistency across all clusters makes them ideal candidates for deployment.
+</p>
+
+</body>
+</html>
